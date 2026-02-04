@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/housewarming_invite.iml" filepath="$PROJECT_DIR$/housewarming_invite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/housewarming_invite_android.iml" filepath="$PROJECT_DIR$/android/housewarming_invite_android.iml" />
+    </modules>
+  </component>
+</project>
