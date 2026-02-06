@@ -33,6 +33,7 @@ dependencies:
     
   audioplayers: ^6.5.1
   url_launcher: ^6.3.2
+  lottie: ^3.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -56,7 +57,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - assets/audio/bell1.wav
+    - assets/animations/
   fonts:
     - family: Playfair
       fonts:

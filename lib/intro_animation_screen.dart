@@ -3,14 +3,14 @@ import 'package:housewarming_invite/utils/app_text_style.dart';
 import 'package:housewarming_invite/widgets/countdown.dart';
 import 'package:housewarming_invite/widgets/date_muhhurtham.dart';
 import 'package:housewarming_invite/widgets/familyname.dart';
-import 'package:housewarming_invite/widgets/googleMapButton.dart';
 import 'package:housewarming_invite/widgets/ornament_divider.dart';
 import 'package:housewarming_invite/widgets/skanda_krupa_title.dart';
+import 'package:housewarming_invite/widgets/venue.dart';
 import 'dart:async';
 import '../widgets/floating_flowers.dart';
 import '../utils/app_texts.dart';
 
-class IntroAnimationScreen extends StatefulWidget {
+class IntroAnimationScreen extends StatefulWidget { 
   const IntroAnimationScreen({super.key});
 
   @override
@@ -27,9 +27,9 @@ class _IntroAnimationScreenState extends State<IntroAnimationScreen>
   bool showText2 = false;
   bool showDateSection = false;
   bool isEnglish = true;
-
+ 
   @override
-  void initState() {
+  void initState()  {
     super.initState();
 
 
@@ -75,144 +75,243 @@ class _IntroAnimationScreenState extends State<IntroAnimationScreen>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(
+      const AssetImage('images/bg4.jpg'),
+      context,
+    );
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            // 🌸 BACKGROUND TEXTURE
-            Positioned.fill(
-              child: Image.asset(
-                'images/bg2.jpg',
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: SafeArea(
+      child: Stack(
+        children: [
+          //Background
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/bg4.jpg'),
                 fit: BoxFit.cover,
-                //color: Colors.white.withOpacity(0.85),
-                //colorBlendMode: BlendMode.lighten,
               ),
             ),
+          ),
 
-            // Soft cream overlay (keeps devotional warmth)
-            Positioned.fill(
-              child: Container(
-                color: const Color(0xFFFFF4E6).withOpacity(0.6),
-              ),
+          // Soft cream overlay
+          Positioned.fill(
+            child: Container(
+              color: const Color(0xFFFFF4E6).withOpacity(0.6),
             ),
+          ),
+         
 
-            FloatingFlowers(active: showDateSection),
+          // Floating flowers (optional animation)
+          FloatingFlowers(active: showDateSection),
 
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-
-                  AnimatedOpacity(
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                AnimatedOpacity(
                     duration: const Duration(milliseconds: 1200),
                     opacity: 1,
-                    child: Text(
-                      "ॐ शरवणभवाय नमः",
+                    child: Text( isEnglish
+                      ? AppTexts.english["om_text"]!
+                      : AppTexts.telugu["om_text"]!,
                       textAlign: TextAlign.center,
                      // style: AppTextStyle.sacred(),
                     ),
                   ),
+                const SizedBox(height: 8),
 
-                  const SizedBox(height: 6),
+                // Language toggle
+                Align(
+                  alignment: Alignment.topRight,
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        isEnglish = !isEnglish;
+                      });
+                    },
+                     
+                    child: Text(
+                      isEnglish ? "తెలుగు" : "English",
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
 
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: TextButton(
-                      onPressed: () {
+                // Muruga Image Animation
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return Container(
+                      height: 300,
+                      alignment: _alignmentAnimation.value,
+                      child: Transform.scale(
+                        scale: _scaleAnimation.value,
+                        child: Image.asset(
+                          'images/murugaaa.jpg',
+                          height: 300,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+
+                //  House Warming Ceremony title
+AnimatedOpacity(
+  duration: const Duration(milliseconds: 1200),
+  opacity: showText1 ? 1 : 0,
+  child: Padding(
+    padding: const EdgeInsets.only(top: 12),
+    child: Text(
+      isEnglish
+          ? AppTexts.english["house_warming_title"]!
+          : AppTexts.telugu["house_warming_title"]!,
+      textAlign: TextAlign.center,
+      style: AppTextStyle.title(
+        isEnglish,
+      ),
+    ),
+  ),
+),
+
+
+
+
+                // Parents' Names
+                if (showText1)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: ParentsInviteText(isEnglish: isEnglish),
+                  ),
+
+                // Invitation lines
+                if (showText2)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 14),
+                    child: TypewriterText(
+                      text: isEnglish
+                          ? AppTexts.english["invite_line1"]!
+                          : AppTexts.telugu["invite_line1"]!,
+                      isEnglish: isEnglish,
+                      onComplete: () {
                         setState(() {
-                          isEnglish = !isEnglish;
+                          showDateSection = true;
                         });
                       },
-                      child: Text(
-                        isEnglish ? "తెలుగు" : "English",
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
                     ),
                   ),
 
-                  AnimatedBuilder(
-                    animation: _controller,
-                    builder: (context, child) {
-                      return Container(
-                        height: 150,
-                        alignment: _alignmentAnimation.value,
-                        child: Transform.scale(
-                          scale: _scaleAnimation.value,
-                          child: Image.asset(
-                            'images/muruga.png',
-                            height: 120,
-                          ),
-                        ),
-                      );
-                    },
+                if (showDateSection) ...[
+                  const SizedBox(height: 16),
+                  const OrnamentalDivider(),
+
+                  // Skanda Krupa Title
+                  SkandaKrupaTitle(
+                    key: ValueKey(isEnglish),
+                    isEnglish: isEnglish,
                   ),
+                  const OrnamentalDivider(),
 
-                  if (showText1)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: TypewriterText(
-                        text: isEnglish
-                            ? AppTexts.english["invite_line1"]!
-                            : AppTexts.telugu["invite_line1"]!,
-                        isEnglish: isEnglish,
-                      ),
-                    ),
+                  const SizedBox(height: 12),
+                  DateMuhurthamSection(isEnglish: isEnglish),
+                  const SizedBox(height: 10),
 
-                  if (showText2)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: TypewriterText(
-                        text: isEnglish
-                            ? AppTexts.english["invite_line2"]!
-                            : AppTexts.telugu["invite_line2"]!,
-                        isBold: true,
-                        isEnglish: isEnglish,
-                        onComplete: () {
-                          setState(() {
-                            showDateSection = true;
-                          });
-                        },
-                      ),
-                    ),
+                  // Venue
+                  VenueSection(isEnglish: isEnglish),
+                  const SizedBox(height: 24),
+                  const OrnamentalDivider(),
+const SizedBox(height: 12),
 
-                  if (showDateSection) ...[
-                    const SizedBox(height: 16),
-ParentsInviteText(isEnglish:isEnglish),
+Padding(
+  padding: const EdgeInsets.only(
+    left: 48,
+    right: 32,
+    top: 6,
+    bottom: 6,
+  ),
+  child: Align(
+    alignment: Alignment.centerRight, 
+    child: Text(
+      isEnglish
+          ? AppTexts.hostsEnglish
+          : AppTexts.hostsTelugu,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontFamily: isEnglish ? "DancingScript" : "NotoTelugu",
+        fontSize: isEnglish ? 16 : 15,
+        fontStyle: FontStyle.italic,
+        height: 1.6,
+        color: Colors.brown.shade700,
+      ),
+    ),
+  ),
+),
+
+const SizedBox(height: 12),
+const OrnamentalDivider(),
+
+
 const SizedBox(height: 20),
 
-                    const SizedBox(height: 16),
-                    const OrnamentalDivider(),
-                    SkandaKrupaTitle(
-                      key: ValueKey(isEnglish),
-                      isEnglish: isEnglish,
-                    ),
-                    const OrnamentalDivider(),
-                    const SizedBox(height: 12),
-                    DateMuhurthamSection(isEnglish: isEnglish),
-                    const SizedBox(height: 12),
-                    GoogleMapsButton(isEnglish: isEnglish),
-                    const SizedBox(height: 12),
-                    CountdownSection(isEnglish: isEnglish),
-                    const SizedBox(height: 20),
-                  ],
-                ],
-              ),
-            ),
-          ],
+
+                  const SizedBox(height: 12),
+                  CountdownSection(isEnglish: isEnglish),
+                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
+
+Opacity(
+  opacity: 0.6,
+  child: Padding(
+    padding: const EdgeInsets.only(bottom: 24),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          isEnglish
+              ? "Designed with love by Lalitha"
+              : "ఆహ్వాన పత్రిక రూపకల్పన — లలిత",
+          style: TextStyle(
+            fontSize: 12,
+            fontStyle: FontStyle.italic,
+            color: Colors.brown.shade600,
+            letterSpacing: 0.4,
+          ),
         ),
+        const SizedBox(width: 6),
+        Image.asset(
+          'images/heart.png', 
+          height: 12,
+          width: 12,
+        ),
+      ],
+    ),
+  ),
+),
+
+                ],
+              ],
+            ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
 }
 
 class TypewriterText extends StatefulWidget {

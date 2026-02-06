@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:housewarming_invite/utils/app_text_style.dart';
 import 'package:housewarming_invite/utils/app_texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,30 +46,28 @@ class GoogleMapsButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Icon circle
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.brown.shade600,
-                ),
-                child: const Icon(
-                  Icons.location_on,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-              const SizedBox(width: 14),
+              Image.asset(
+  'images/home-location.png',
+  height: 30,
+  width: 30,
+),
 
-              // Text
-              Text(
-                texts["open_maps"]!,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.brown.shade800,
-                  letterSpacing: 0.3,
-                ),
-              ),
+              
+Expanded(
+  child: Text(
+    texts["open_maps"]!,
+    textAlign: TextAlign.center,
+    maxLines: 1,
+    softWrap: false,
+    overflow: TextOverflow.fade,
+    style: AppTextStyle.body(
+      isEnglish,
+      size: 14,
+      weight: FontWeight.w600,
+    ),
+  ),
+),
+
             ],
           ),
         ),

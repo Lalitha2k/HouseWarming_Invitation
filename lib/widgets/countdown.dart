@@ -45,8 +45,7 @@ class _CountdownSectionState extends State<CountdownSection> {
       return const SizedBox();
     }
 
-    final texts =
-        widget.isEnglish ? AppTexts.english : AppTexts.telugu;
+    final texts = widget.isEnglish ? AppTexts.english : AppTexts.telugu;
 
     final days = remaining.inDays;
     final hours = remaining.inHours % 24;
@@ -58,8 +57,7 @@ class _CountdownSectionState extends State<CountdownSection> {
       child: Column(
         children: [
           Text(
-            texts["countdown_title"]!
-                .replaceAll("{days}", days.toString()),
+            texts["countdown_title"]!.replaceAll("{days}", days.toString()),
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
@@ -70,10 +68,7 @@ class _CountdownSectionState extends State<CountdownSection> {
           const SizedBox(height: 14),
 
           Container(
-            padding: const EdgeInsets.symmetric(
-              vertical: 18,
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(18),
@@ -105,18 +100,12 @@ class _CountdownSectionState extends State<CountdownSection> {
       children: [
         Text(
           value.toString().padLeft(2, '0'),
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 4),
         Text(
           label,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.brown.shade600,
-          ),
+          style: TextStyle(fontSize: 12, color: Colors.brown.shade600),
         ),
       ],
     );

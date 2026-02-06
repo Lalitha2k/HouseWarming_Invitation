@@ -23,11 +23,11 @@ class DateMuhurthamSection extends StatelessWidget {
         },
         child: Container(
   padding: const EdgeInsets.symmetric(
-    vertical: 18, // ⬅️ reduced
+    vertical: 18, 
     horizontal: 18,
   ),
   decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(14), // ⬅️ smaller
+    borderRadius: BorderRadius.circular(14), 
     border: Border.all(
       color: Colors.brown.shade300,
       width: 1,
@@ -35,12 +35,12 @@ class DateMuhurthamSection extends StatelessWidget {
     image: DecorationImage(
       image: AssetImage("images/image3.jpg"),
       fit: BoxFit.cover,
-      opacity: 0.20, // 🌸 very subtle
+      opacity: 0.20, 
     ),
-    color: Colors.brown.shade50, // fallback
+    color: Colors.brown.shade50, 
   ),
   child: Column(
-    mainAxisSize: MainAxisSize.min, // ⬅️ IMPORTANT: reduces box height
+    mainAxisSize: MainAxisSize.min, 
     children: [
       _title(isEnglish ? "DATE" : "తేదీ"),
       const SizedBox(height: 4),
@@ -58,9 +58,21 @@ class DateMuhurthamSection extends StatelessWidget {
       const SizedBox(height: 4),
       _value(
         isEnglish
-            ? "9:15 AM – 10:30 AM"
-            : "ఉదయం 9:15 నుండి 10:30 వరకు",
+            ? "6:45 AM – 7:45 AM"
+            : "ఉదయం 6:45 నుండి 7:45 వరకు",
       ),
+      const SizedBox(height: 16),
+_ornamentalDivider(),
+const SizedBox(height: 16),
+
+_title(isEnglish ? "LUNCH" : "భోజనం"),
+const SizedBox(height: 4),
+_valueSoft(
+  isEnglish
+      ? "12:30 PM onwards"
+      : "మధ్యాహ్నం 12:30 గంటల నుండి",
+),
+
     ],
   ),
 )
@@ -95,7 +107,21 @@ class DateMuhurthamSection extends StatelessWidget {
     );
   }
 
-  /// 🌼 Traditional ornamental divider
+  Widget _valueSoft(String text) {
+  return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: Colors.brown.shade800,
+      height: 1.4,
+    ),
+  );
+}
+
+
+  /// ornamental divider
   Widget _ornamentalDivider() {
     return Row(
       children: [

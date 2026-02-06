@@ -12,7 +12,7 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle title(bool isEnglish) {
+  static TextStyle title(bool isEnglish) {  
     return TextStyle(
       fontFamily: isEnglish ? "Playfair" : "NotoTelugu",
       fontSize: 20,

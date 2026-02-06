@@ -92,9 +92,9 @@ class _FallingFlowerState extends State<FallingFlower>
           top: _fallAnimation.value,
           left: widget.startX,
           child: Opacity(
-            opacity: 0.80,
+            opacity: 0.90,
             child: Image.asset(
-              'images/flower1.png',
+              'images/flowers.png',
               width: widget.size,
               height: widget.size,
             ),
