@@ -78,7 +78,7 @@ class _IntroAnimationScreenState extends State<IntroAnimationScreen>
   void didChangeDependencies() {
     super.didChangeDependencies();
     precacheImage(
-      const AssetImage('images/bg4.jpg'),
+      const AssetImage('assets/images/bg4.jpg'),
       context,
     );
   }
@@ -99,18 +99,18 @@ Widget build(BuildContext context) {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/bg4.jpg'),
+                image: AssetImage('assets/images/bg4.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
 
           // Soft cream overlay
-          Positioned.fill(
-            child: Container(
-              color: const Color(0xFFFFF4E6).withOpacity(0.6),
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Container(
+          //     color: const Color(0xFFFFF4E6).withOpacity(0.6),
+          //   ),
+          // ),
          
 
           // Floating flowers (optional animation)
@@ -161,7 +161,7 @@ Widget build(BuildContext context) {
                       child: Transform.scale(
                         scale: _scaleAnimation.value,
                         child: Image.asset(
-                          'images/murugaaa.jpg',
+                          'assets/images/murugaa.jpg',
                           height: 300,
                         ),
                       ),
@@ -200,7 +200,7 @@ AnimatedOpacity(
                 // Invitation lines
                 if (showText2)
                   Padding(
-                    padding: const EdgeInsets.only(top: 14),
+                    padding: const EdgeInsets.only(top: 10),
                     child: TypewriterText(
                       text: isEnglish
                           ? AppTexts.english["invite_line1"]!
@@ -215,7 +215,7 @@ AnimatedOpacity(
                   ),
 
                 if (showDateSection) ...[
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
                   const OrnamentalDivider(),
 
                   // Skanda Krupa Title
@@ -243,7 +243,7 @@ Padding(
     bottom: 6,
   ),
   child: Align(
-    alignment: Alignment.centerRight, 
+    alignment: Alignment.center, 
     child: Text(
       isEnglish
           ? AppTexts.hostsEnglish
@@ -293,7 +293,7 @@ Opacity(
         ),
         const SizedBox(width: 6),
         Image.asset(
-          'images/heart.png', 
+          'assets/images/heartt.png',
           height: 12,
           width: 12,
         ),

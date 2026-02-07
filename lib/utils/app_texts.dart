@@ -21,7 +21,7 @@ class AppTexts {
     "lunch_time": "12:00PM onwards",
 
     // Countdown
-    "countdown_title": "⏳ {days} Days Remaining",
+    "countdown_title": "⏳ {days} Days to go!",
     "days": "Days",
     "hours": "Hrs",
     "minutes": "Min",
@@ -38,8 +38,7 @@ class AppTexts {
     "house_name": "స్కంద కృప",
     "ceremony_title": "నూతన గృహప్రవేశ ఆహ్వాన పత్రిక ",
     "invite_line1":
-        "స్వస్తి శ్రీ విశ్వావసు నామ సంవత్సర ఫాల్గుణ శుద్ధ తదియా శుక్రవారం తే. 20-2-2026 న ఉ. 6గం. 45ని. ల నుండి 7గం.45ని. ల వరకు చెల్లు శుభ కుంభలగ్నమందు జరుగు మా నూతనగృహం స్కందకృప\nయొక్క గృహప్రవేశమునకు తామెల్లరూ సకుటుంబులై విచ్చేసి మమ్మలనాశీర్వదించి మా మనస్సంతోషపరచవలెనని మనసారా ఆహ్వానిస్తున్నాము ",
-    
+        "స్వస్తి శ్రీ విశ్వావసు నామ సంవత్సర ఫాల్గుణ శుద్ధ తదియా శుక్రవారం తే. 20-2-2026 న ఉ. 6గం. 45ని. ల నుండి 7గం.45ని. ల వరకు చెల్లు శుభ కుంభలగ్నమందు జరుగు మా నూతనగృహం స్కందకృప\n గృహప్రవేశమునకు తామెల్లరూ సకుటుంబ సమేతము విచ్చేసి మమ్ములనాశీర్వదించి ప్రార్ధన",
     // Date & Muhurtham
     "date": "తేదీ",
     "muhurtham": "ముహూర్తం",
@@ -57,19 +56,19 @@ class AppTexts {
     "open_maps": "గూగుల్ మ్యాప్స్‌లో తెరవండి",
   };
   static const String parentsInviteEnglish =
-      "Smt. Suma & Sri A.Sreenivasa Murthy \n";
+      " Smt. A. Suma & Sri A. Sreenivasa Murthy \n";
 
   static const String parentsInviteTelugu =
-      " శ్రీమతి సుమా & శ్రీ A.S మూర్తి \nవీరు చేయు విజ్ఞాపనలు.";
+      "కీ.శె.శ్రీమతి అక్షింతల నాగమణెమ్మ & శ్రీ అక్షింతల సుబ్బ శర్మ వారి ఆశీర్వాదములతో \nవారి కనిష్ఠ కుమారుడు మరియు కోడలు\n శ్రీమతి అక్షింతల సుమ & శ్రీ అక్షింతల శ్రీనివాసమూర్తి చేయు గృహప్రవేశం విజ్ఞాపనలు.";
 
      static const String hostsEnglish =
     "Yours sincerely,\n"
     "Smt. Suma & Sri A.Sreenivasa Murthy\n"
-    "Lalitha & Sahithi";
+    "Lalitha & Sahiti";
 
 static const String hostsTelugu =
     "- ఇట్లు మీ,\n"
-    "శ్రీమతి సుమా & శ్రీ అక్షింతల శ్రీనివాస మూర్తి\n"
+    "శ్రీమతి సుమ & శ్రీ అక్షింతల శ్రీనివాస మూర్తి\n"
     "లలిత & సహితి";
 
 }

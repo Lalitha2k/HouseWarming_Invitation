@@ -94,7 +94,7 @@ class _FallingFlowerState extends State<FallingFlower>
           child: Opacity(
             opacity: 0.90,
             child: Image.asset(
-              'images/flowers.png',
+              'assets/images/flowerss.png',
               width: widget.size,
               height: widget.size,
             ),

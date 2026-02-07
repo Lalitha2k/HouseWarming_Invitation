@@ -33,7 +33,7 @@ class DateMuhurthamSection extends StatelessWidget {
       width: 1,
     ),
     image: DecorationImage(
-      image: AssetImage("images/image3.jpg"),
+      image: AssetImage("assets/images/image3.jpg"),
       fit: BoxFit.cover,
       opacity: 0.20, 
     ),
@@ -65,7 +65,7 @@ class DateMuhurthamSection extends StatelessWidget {
 _ornamentalDivider(),
 const SizedBox(height: 16),
 
-_title(isEnglish ? "LUNCH" : "భోజనం"),
+_title(isEnglish ? "LUNCH" : "విందు"),
 const SizedBox(height: 4),
 _valueSoft(
   isEnglish

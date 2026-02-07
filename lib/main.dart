@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Gruha Pravesham Invitation',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        
         textTheme: const TextTheme(
       bodyMedium: TextStyle(fontFamily: "Playfair"),
       bodyLarge: TextStyle(fontFamily: "Playfair"),

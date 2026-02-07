@@ -47,7 +47,7 @@ class GoogleMapsButton extends StatelessWidget {
             children: [
               // Icon circle
               Image.asset(
-  'images/home-location.png',
+  'assets/images/home-locationn.png',
   height: 30,
   width: 30,
 ),
