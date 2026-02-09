@@ -38,7 +38,7 @@ class VenueSection extends StatelessWidget {
               const SizedBox(width: 8),
               
               Text(
-                isEnglish ? "Venue" : "వేదిక",
+                isEnglish ? "Venue" : "చిరునామా",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -69,8 +69,7 @@ class VenueSection extends StatelessWidget {
   child: Text(
     isEnglish
         ? "No.55/1, C Block - 416 (4th Floor), Subramanyapura, Poornapragna Layout, Uttarahalli Main Road, Bengaluru - 560061"
-        : "No.55/1, C Block - 416 (4వ అంతస్తు), సుబ్రమణ్యపుర, పూర్ణప్రజ్ఞ లేఅవుట్, ఉత్తరహಳ್ಳಿ మెయిన్ రోడ్, బెంగళూరు - 560061",
-    textAlign: TextAlign.center,
+        : "No.55/1, C Block - 416 (4th Floor), Subramanyapura, Poornapragna Layout, Uttarahalli Main Road, Bengaluru - 560061",
     softWrap: true,
     style: TextStyle(
       fontSize: 15,
